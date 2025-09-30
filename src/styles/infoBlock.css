@@ -1,0 +1,166 @@
+.block-with-all-info {
+    padding: 0 20px;
+    margin-bottom: 140px;
+}
+
+.slider {
+    margin-bottom: 20px;
+}
+
+.slider-block {
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    height: 740px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.block-with-info {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+}
+
+.up-info {
+    font-size: 16px;
+    margin-bottom: 10px;
+    letter-spacing: -3%;
+    font-weight: 400;
+}
+
+.title {
+    margin-bottom: 33px;
+    letter-spacing: -3%;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.block-with-info button, 
+.block-with-info-middle button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    background-color: rgba(160, 36, 36, 1);
+    border-radius: 30px;
+}
+
+.block-with-info button:hover,
+.block-with-info-middle button:hover {
+    background-color: rgb(112, 27, 27);
+}
+
+.buttons {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    bottom: 20px;
+    left: 20px;
+}
+
+.buttons button {
+    border: none;
+    outline: none;
+    text-align: center;
+    background-color: red;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 100px;
+    background-color: white;
+    padding: 12px 14px 12px 14px;
+}
+
+.left-button img {
+    transform: rotate(180deg);
+}
+
+.middle-block {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.middle-block-container {
+    flex-grow: 1;
+    height: 740px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-radius: 20px;
+    width: calc(100% / 2 - 20px);
+}
+
+.velour {
+    background-position: 100% 60%;
+    background-size: 135%;
+}
+
+.block-with-info-middle {
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.silken {
+    top: 38%;
+}
+
+.velour .block-with-info-middle {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+}
+
+.silken  {
+    color: white
+}
+
+.silken button {
+    background-color: white;
+    color: black;
+}
+
+.silken button:hover {
+    background-color: rgb(203, 203, 203);
+}
+
+.bottom-block-container {
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+    height: 740px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.edel {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: white;
+}
+
+.edel button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.edel button:hover {
+    background-color: rgb(203, 203, 203);
+}

@@ -1,0 +1,28 @@
+.about {
+    margin-top: 140px;
+    padding: 0 115px;
+    margin-bottom: 155px;
+}
+
+.about-container {
+    padding: 0 36px;
+    align-items: center;
+    text-align: center;
+}
+
+.image-brand {
+    align-items: center;
+    width: 185px;
+    height: 30px;
+    margin-bottom: 50px;
+}
+
+.main-text {
+    font-weight: 500;
+    font-size: 50px;
+    margin-bottom: 58px;
+}
+
+.add-text {
+    font-size: 16px;
+}
