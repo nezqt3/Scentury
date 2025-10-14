@@ -1,14 +1,14 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
-
 
 .red-text {
-    color: rgba(181, 55, 33, 1)
+  color: rgba(181, 55, 33, 1);
 }
 
-@import './about.css';
-@import './infoBlock.css';
+@import "./about.css";
+@import "./infoBlock.css";
+@import "./history.css";

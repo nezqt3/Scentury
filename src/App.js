@@ -1,4 +1,5 @@
 import About from "./components/About";
+import History from "./components/History";
 import InfoBlock from "./components/InfoBlock";
 import "./styles/main.css";
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <About />
       <InfoBlock />
+      <History />
     </div>
   );
 }
