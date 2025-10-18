@@ -7,7 +7,7 @@ export default function About() {
                 <img src={Logo} alt="about-brand" className='image-brand'/>
                 <p className="main-text">
                     Мы создаём пространство для парфюмерного искусства. 
-                    <span className="red-text">Каждый аромат</span> в нашей коллекции — это <span className="red-text">результат</span> работы <span className="red-text">независимых парфюмеров</span>, 
+                    <span className="red-text"> Каждый аромат</span> в нашей коллекции — это <span className="red-text">результат</span> работы <span className="red-text">независимых парфюмеров</span>, 
                     которые вкладывают душу в свои творения.
                 </p>
                 <p className="add-text red-text">
