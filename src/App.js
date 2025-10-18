@@ -4,6 +4,7 @@ import Choose from "./components/Choose";
 import Footer from "./components/Footer";
 import History from "./components/History";
 import InfoBlock from "./components/InfoBlock";
+import Reviews from "./components/reviews/Reviews";
 import "./styles/main.css";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <About />
       <InfoBlock />
       <History />
+      <Reviews />
       <BigPhotoBlock />
       <Choose />
       <Footer />
