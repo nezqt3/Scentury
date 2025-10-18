@@ -1,0 +1,19 @@
+.big-block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.big-block p {
+    padding: 0 20px;
+    width: 938px;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 50px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -5%;
+}
+
+.big-block span {
+    color: rgba(160, 36, 36, 1);
+}
