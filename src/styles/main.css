@@ -12,4 +12,5 @@
 @import "./about.css";
 @import "./infoBlock.css";
 @import "./history.css";
-@import url('./bigphotostyles.css');
+@import './bigphotostyles.css';
+@import './choose.css';

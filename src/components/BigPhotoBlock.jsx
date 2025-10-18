@@ -3,6 +3,6 @@ export default function BigPhotoBlock() {
             <p>
                 Ароматы вне времени. Мы собрали коллекцию парфюмерии, которую <span>вы не встретите в масс-маркете.</span>
             </p>
-        <img src={require("../static/bigphoto.png")}/>
+        <img src={require("../static/bigphoto.png")} alt="big-photo"/>
     </div>
 }

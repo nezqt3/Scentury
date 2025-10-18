@@ -1,0 +1,31 @@
+<svg
+  width="20"
+  height="20"
+  viewBox="0 0 20 20"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <!-- Оригинальный элемент (шаблон) -->
+    <g id="repeat_group_inner">
+      <path
+        d="M9.06677 0.710176C9.06677 0.341957 9.48467 0.043457 10.0002 0.043457C10.5157 0.043457 10.9336 0.341957 10.9336 0.710176V4.35491C10.9336 4.72313 10.5157 5.02163 10.0002 5.02163C9.48467 5.02163 9.06677 4.72313 9.06677 4.35491V0.710176Z"
+        fill="#A02424"
+      />
+    </g>
+  </defs>
+
+  <!-- "Верхняя палочка" — оригинал без трансформации -->
+  <use href="#repeat_group_inner" />
+
+  <!-- Копии элемента с разными трансформациями (около круга) -->
+  <use href="#repeat_group_inner" transform="translate(7.78771 -3.96813) rotate(36)" />
+  <use href="#repeat_group_inner" transform="translate(16.4205 -2.60092) rotate(72)" />
+  <use href="#repeat_group_inner" transform="translate(22.601 3.57941) rotate(108)" />
+  <use href="#repeat_group_inner" transform="translate(23.9683 12.2122) rotate(144)" />
+  <use href="#repeat_group_inner" transform="translate(20.0004 20) rotate(-180)" />
+  <use href="#repeat_group_inner" transform="translate(12.2127 23.9681) rotate(-144)" />
+  <use href="#repeat_group_inner" transform="translate(3.57986 22.6009) rotate(-108)" />
+  <use href="#repeat_group_inner" transform="translate(-2.6006 16.4206) rotate(-72)" />
+  <use href="#repeat_group_inner" transform="translate(-3.96798 7.78778) rotate(-36)" />
+</svg>
