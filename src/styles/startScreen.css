@@ -207,3 +207,11 @@ h1 {
   background-color: white;
   color: rgba(160, 36, 36, 1);
 }
+
+.navigation-left-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  position: absolute;
+  left: 20px;
+}

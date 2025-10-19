@@ -1,7 +1,6 @@
 .reviews-block {
   position: relative;
   margin-bottom: 140px;
-  overflow: visible;
 }
 
 .reviews-block h2 {
@@ -27,8 +26,9 @@
 
 .behind-block {
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   position: absolute;
+  width: 100%;
   left: 0;
   top: 341px;
   z-index: -1000;

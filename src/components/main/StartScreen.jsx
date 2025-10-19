@@ -47,6 +47,12 @@ export default function StartScreen() {
         <div className="text-front">
           <p>уникальный парфюм</p>
         </div>
+        <div className="navigation-left-buttons">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+        </div>
       </div>
     </div>
   );
