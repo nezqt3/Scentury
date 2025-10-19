@@ -2,11 +2,14 @@
   display: flex;
   margin-bottom: 120px;
   padding: 20px 0;
+  flex-direction: row;
+  gap: 50px;
 }
 
 .logo-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 12px;
 }
 
@@ -16,4 +19,81 @@
   line-height: 100%;
   letter-spacing: 0%;
   color: rgba(160, 36, 36, 1);
+}
+
+.logo-header img {
+  width: 26px;
+  height: 26px;
+}
+
+.navigation {
+  display: flex;
+  gap: 4px; /* Уменьшаем gap для более плавного перехода */
+  flex-direction: row;
+  background-color: rgba(247, 247, 247, 1);
+  border-radius: 30px;
+  padding: 4px;
+  align-items: center;
+  position: relative;
+}
+
+.navigation-item {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 100%;
+  letter-spacing: -3%;
+  text-align: center;
+  opacity: 0.6;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 9px 20px;
+  border-radius: 26px;
+  position: relative;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.navigation-item:hover {
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.navigation-item.active {
+  opacity: 1;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.navigation-item.active.animating {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-item::before {
+  content: "";
+  width: 0;
+  height: 20px;
+  background: url("../static/red_point.svg") no-repeat center;
+  background-size: contain;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  display: block;
+}
+
+.navigation-item.active::before {
+  width: 20px;
+  opacity: 1;
+}
+
+.nav-text {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navigation-item.active .nav-text {
+  transform: translateX(0);
 }

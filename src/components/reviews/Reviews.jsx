@@ -63,7 +63,7 @@ export default function Reviews() {
   };
 
   return (
-    <div className="reviews-block">
+    <div className="reviews-block" id="#reviews">
       <h2>
         Ароматы глазами<br></br> клиентов
       </h2>
