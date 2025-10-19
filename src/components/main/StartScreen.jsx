@@ -3,9 +3,12 @@ import Instagram from "../../static/instagram.svg";
 import Telegram from "../../static/telegram.svg";
 import Mail from "../../static/email.svg";
 import Xz from "../../static/xz.svg";
-import { useState } from "react";
+import { act, useEffect, useState } from "react";
 import blockRightBackground from "../../static/blockRightBackground.png";
 import blockRightBackgroundAurora from "../../static/image-back.png";
+import blockRightBackgroundVelour from "../../static/Velour-Noir.png";
+import blockRightBackgroundSilken from "../../static/silken_muse.png";
+import blockRightBackgroundEdel from "../../static/edel_roots.png";
 
 export default function StartScreen() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,20 +18,40 @@ export default function StartScreen() {
 
   const elements = [
     { id: 1, backgroundUrl: blockRightBackground },
-    { id: 2, backgroundUrl: blockRightBackgroundAurora },
-    { id: 3, backgroundUrl: blockRightBackground },
+    { id: 2, backgroundUrl: blockRightBackgroundVelour },
+    { id: 3, backgroundUrl: blockRightBackgroundSilken },
     { id: 4, backgroundUrl: blockRightBackgroundAurora },
+    { id: 5, backgroundUrl: blockRightBackgroundEdel },
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => {
+        if (isAnimating) return prevIndex; // не трогаем во время анимации
+        const newIndex = (prevIndex + 1) % elements.length;
+        setPrevIndex(prevIndex);
+        setDirection(newIndex > prevIndex ? "up" : "down");
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 700);
+        return newIndex;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval); // очистка интервала при размонтировании
+  }, [elements.length, isAnimating]);
+
   const handleNavigationClick = (index) => {
-    if (index === activeIndex || isAnimating) return;
+    if (isAnimating || index === activeIndex) return;
+
+    // Обеспечиваем цикличность индекса
+    const newIndex = (index + elements.length) % elements.length;
 
     setIsAnimating(true);
     setPrevIndex(activeIndex);
-    setActiveIndex(index);
-    setDirection(index > activeIndex ? "up" : "down");
+    setActiveIndex(newIndex);
+    setDirection(newIndex > activeIndex ? "up" : "down");
 
-    setTimeout(() => setIsAnimating(false), 700); // совпадает с transition
+    setTimeout(() => setIsAnimating(false), 700);
   };
 
   return (
@@ -109,9 +132,27 @@ export default function StartScreen() {
             </div>
 
             <div className="bottom-block-right-screen">
-              <div>
-                <button>Открыть</button>
-                <button>Запах</button>
+              <div className="buttons-bottom">
+                <button className="open-bottom">Открыть</button>
+                <button className="aromat-bottom">Запах</button>
+              </div>
+              <div
+                className="nextButton-bottom"
+                onClick={() => handleNavigationClick(activeIndex + 1)}
+              >
+                <div className="nextButton-bottom-inner">
+                  <div className="inner-left">
+                    <p className="plus">+</p>
+                    <img
+                      style={{
+                        backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
+                      }}
+                    />
+                  </div>
+                  <div className="inner-right">
+                    <p>Далее</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

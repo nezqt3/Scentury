@@ -59,6 +59,9 @@ export default function Reviews() {
 
   const goNext = () => {
     setPrevIndex(activeIndex);
+    let prev = 0;
+    if (activeIndex + 1 < reviews.length) prev = activeIndex + 1;
+    else prev = 0;
     setActiveIndex((prev) => (prev + 1) % reviews.length);
   };
 
