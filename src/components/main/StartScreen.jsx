@@ -3,8 +3,19 @@ import Instagram from "../../static/instagram.svg";
 import Telegram from "../../static/telegram.svg";
 import Mail from "../../static/email.svg";
 import Xz from "../../static/xz.svg";
+import { act, useState } from "react";
+import blockRightBackground from "../../static/blockRightBackground.png";
 
 export default function StartScreen() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const elements = [
+    { id: 1, backgroundUrl: blockRightBackground },
+    { id: 2, backgroundUrl: blockRightBackground },
+    { id: 3, backgroundUrl: blockRightBackground },
+    { id: 4, backgroundUrl: blockRightBackground },
+  ];
+
   return (
     <div className="start-screen" id="#collection">
       <div className="left-start-screen">
@@ -27,7 +38,7 @@ export default function StartScreen() {
       <div
         className="right-start-screen"
         style={{
-          backgroundImage: `url(${require("../../static/blockRightBackground.png")})`,
+          backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
         }}
       >
         <div className="head-right-start-screen">
@@ -48,10 +59,16 @@ export default function StartScreen() {
           <p>уникальный парфюм</p>
         </div>
         <div className="navigation-left-buttons">
-          <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
+          {elements.map((elem) => {
+            return (
+              <p
+                onClick={() => setActiveIndex(elem.id - 1)}
+                className={`${elem.id - 1 === activeIndex ? "active-nav" : ""}`}
+              >
+                {elem.id}
+              </p>
+            );
+          })}
         </div>
       </div>
     </div>
