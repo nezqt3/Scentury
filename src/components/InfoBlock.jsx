@@ -1,5 +1,4 @@
 import Arrow from "../static/arrow.svg";
-import loadData, { findPath, pathToInstructions } from "../gps/searchRightPath";
 
 export default function InfoBlock() {
   return (

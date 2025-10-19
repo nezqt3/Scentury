@@ -116,14 +116,149 @@ h1 {
   height: 35px;
 }
 
-.right-start-screen {
+/* Контейнер для правой части */
+.right-start-screen-container {
   border-radius: 30px;
   flex: 1;
   position: relative;
-  background-repeat: no-repeat;
-  background-position: -400px;
-  background-size: cover;
+  overflow: hidden;
+}
+
+.right-start-screen {
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
+}
+
+/* Базовые стили фонового слоя */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px;
+  z-index: 1;
+  transition:
+    transform 0.7s ease-in-out,
+    opacity 0.7s ease-in-out;
+}
+
+/* Старый фон поверх нового */
+.background-image.previous {
+  z-index: 2;
+}
+
+/* Сдвиг нового фона сверху */
+.background-image.slide-in-up {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: slideInUp 0.7s forwards;
+}
+
+/* Сдвиг нового фона снизу */
+.background-image.slide-in-down {
+  transform: translateY(-100%);
+  opacity: 0;
+  animation: slideInDown 0.7s forwards;
+}
+
+/* Сдвиг старого фона вверх */
+.background-image.slide-out-up {
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideOutUp 0.7s forwards;
+}
+
+/* Сдвиг старого фона вниз */
+.background-image.slide-out-down {
+  transform: translateY(0);
+  opacity: 1;
+  animation: slideOutDown 0.7s forwards;
+}
+
+/* Анимации */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideUpOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDownOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Контент поверх фона */
+.right-start-screen-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .text-front {
@@ -140,12 +275,14 @@ h1 {
   transform: rotate(-90deg);
   white-space: nowrap;
   transform-origin: center right;
+  z-index: 4;
 }
 
 .head-right-start-screen {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 4;
 }
 
 .social-media {
@@ -156,6 +293,7 @@ h1 {
   align-items: center;
   border-radius: 30px;
   gap: 1px;
+  z-index: 4;
 }
 
 .social-media div img {
@@ -201,6 +339,7 @@ h1 {
   outline: none;
   transition: all 0.3s ease;
   border: 1px solid rgba(160, 36, 36, 1);
+  z-index: 4;
 }
 
 .head-right-start-screen button:hover {
@@ -215,6 +354,8 @@ h1 {
   position: absolute;
   top: 50%;
   left: 20px;
+  transform: translateY(-50%);
+  z-index: 4;
 }
 
 .navigation-left-buttons p {
@@ -237,8 +378,13 @@ h1 {
   letter-spacing: 0%;
   cursor: pointer;
   transition: all 0.3s ease-in;
+  z-index: 4;
 }
 
 .navigation-left-buttons p.active-nav {
   opacity: 1;
+}
+
+.bottom-block-right-screen {
+  z-index: 4;
 }
