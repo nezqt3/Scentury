@@ -4,6 +4,7 @@ import Telegram from "../../static/telegram.svg";
 import Mail from "../../static/email.svg";
 import Xz from "../../static/xz.svg";
 import { act, useEffect, useState } from "react";
+import ArrowBlack from "../../static/black_arrow.svg";
 import blockRightBackground from "../../static/blockRightBackground.png";
 import blockRightBackgroundAurora from "../../static/image-back.png";
 import blockRightBackgroundVelour from "../../static/Velour-Noir.png";
@@ -138,7 +139,15 @@ export default function StartScreen() {
               </div>
               <div
                 className="nextButton-bottom"
-                onClick={() => handleNavigationClick(activeIndex + 1)}
+                onClick={() => {
+                  const section = document.getElementById("#reviews");
+                  if (section) {
+                    section.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
               >
                 <div className="nextButton-bottom-inner">
                   <div className="inner-left">
@@ -150,7 +159,12 @@ export default function StartScreen() {
                     />
                   </div>
                   <div className="inner-right">
-                    <p>Далее</p>
+                    <p>Отзывы</p>
+                    <div>
+                      <img src={ArrowBlack} />
+                      <img src={ArrowBlack} />
+                      <img src={ArrowBlack} />
+                    </div>
                   </div>
                 </div>
               </div>

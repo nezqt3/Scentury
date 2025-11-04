@@ -438,18 +438,70 @@ h1 {
   background-color: rgba(234, 234, 234, 1);
   border: 2px solid white;
   outline: none;
+  width: 260px;
+  display: flex;
+  flex-direction: row;
 }
 
 .nextButton-bottom-inner {
-  border-radius: 40px;
+  border-radius: 35px;
   position: relative;
+  padding: 4px 33px 4px 4px;
   display: flex;
+  cursor: pointer;
   flex-direction: row;
+  justify-content: space-between;
+  transition: 0.3s transform ease-in-out;
+  background-color: white;
   gap: 9px;
   padding: 4px;
+}
+
+.nextButton-bottom-inner:hover {
+  transform: translateX(33px);
+}
+
+.inner-left {
   background-color: white;
+  border-radius: 35px;
+}
+
+.inner-right {
+  display: flex;
+  gap: 7px;
+  flex-direction: column;
+  border-radius: 35px;
+}
+
+.inner-right div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .inner-left .plus {
   position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
+  padding: 6px 13px;
+  top: 15px;
+  left: 15px;
+  border-radius: 50%;
+}
+
+.inner-left img {
+  border-radius: 40px;
+  height: 100%;
+  width: 130px;
+  background-size: cover;
+}
+
+.inner-right {
+  align-items: center;
+  padding-right: 7px;
+  margin: auto 0;
 }
