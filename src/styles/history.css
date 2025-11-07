@@ -71,3 +71,22 @@
   color: rgba(0, 0, 0, 1);
   opacity: 0.4;
 }
+
+@media (max-width: 400px) {
+  .history {
+    margin-bottom: 70px;
+  }
+
+  .history-title {
+    top: -52px;
+    width: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 32px;
+  }
+
+  .history-facts {
+    gap: 15px;
+    flex-direction: column;
+  }
+}

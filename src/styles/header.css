@@ -189,6 +189,7 @@
 @media (max-width: 400px) {
   .burger {
     display: block;
+    cursor: pointer;
   }
 
   .header {
@@ -197,5 +198,11 @@
 
   .desktop-nav {
     display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    margin-bottom: 40px;
   }
 }

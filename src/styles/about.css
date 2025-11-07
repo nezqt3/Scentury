@@ -1,28 +1,49 @@
 .about {
-    margin-top: 140px;
-    padding: 0 115px;
-    margin-bottom: 155px;
+  margin-top: 140px;
+  padding: 0 115px;
+  margin-bottom: 155px;
 }
 
 .about-container {
-    padding: 0 36px;
-    align-items: center;
-    text-align: center;
+  padding: 0 36px;
+  align-items: center;
+  text-align: center;
 }
 
 .image-brand {
-    align-items: center;
-    width: 185px;
-    height: 30px;
-    margin-bottom: 50px;
+  align-items: center;
+  width: 185px;
+  height: 30px;
+  margin-bottom: 50px;
 }
 
 .main-text {
-    font-weight: 500;
-    font-size: 50px;
-    margin-bottom: 58px;
+  font-weight: 500;
+  font-size: 50px;
+  margin-bottom: 58px;
 }
 
 .add-text {
-    font-size: 16px;
+  font-size: 16px;
+}
+
+@media (max-width: 400px) {
+  .about {
+    margin: 70px 0;
+    padding: 0 15px;
+  }
+
+  .image-brand {
+    margin-bottom: 20px;
+    width: 165px;
+  }
+
+  .main-text {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .add-text {
+    font-size: 14px;
+  }
 }

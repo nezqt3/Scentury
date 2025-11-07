@@ -1,60 +1,60 @@
 .choose {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .logo p {
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: -5%;
-    text-align: center;
-    color: rgba(160, 36, 36, 1);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -5%;
+  text-align: center;
+  color: rgba(160, 36, 36, 1);
 }
 
 .logo img {
-    width: auto;
-    height: 30px; /* увеличь при необходимости */
-    object-fit: contain;
+  width: auto;
+  height: 30px; /* увеличь при необходимости */
+  object-fit: contain;
 }
 
 .main-info {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin-bottom: 70px;
-    justify-content: center;
-    align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 70px;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .main-info p {
-    font-family: Inter;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: -3%;
-    text-align: center;
-    color: rgba(160, 36, 36, 1);
+  font-family: Inter;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -3%;
+  text-align: center;
+  color: rgba(160, 36, 36, 1);
 }
 
 .main-info h2 {
-    color: rgba(0, 0, 0, 1);
-    font-family: Inter;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 64px;
-    line-height: 100%;
-    letter-spacing: -5%;
-    text-align: center;
+  color: rgba(0, 0, 0, 1);
+  font-family: Inter;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 64px;
+  line-height: 100%;
+  letter-spacing: -5%;
+  text-align: center;
 }
 
 .choose-aromat {
@@ -79,11 +79,12 @@
 
 .choose-aromat::after {
   position: absolute;
-  content: '';
+  content: "";
   display: block;
   right: 20px;
   top: 13px;
-  background: url('../static/solar_arrow-up-linear.svg') no-repeat center/contain;
+  background: url("../static/solar_arrow-up-linear.svg") no-repeat
+    center/contain;
   width: 26px;
   height: 26px;
   transition: all 0.3s ease;
@@ -99,4 +100,45 @@
 .choose-aromat:hover::after {
   transform: rotate(45deg);
   filter: brightness(0) invert(1);
+}
+
+@media (max-width: 400px) {
+  .choose {
+    padding: 0 15px;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    justify-content: flex-start;
+  }
+
+  .main-info {
+    position: relative;
+    text-align: left;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+  }
+
+  .main-info h2 {
+    text-align: left;
+  }
+
+  .main-info p {
+    position: absolute;
+    bottom: -20px;
+  }
+
+  .main-info p:last-child {
+    right: 0;
+  }
+
+  .main-info h2 {
+    font-size: 32px;
+  }
+
+  .choose-aromat {
+    margin: 0;
+    font-size: 14px;
+    padding: 17px 59px 17px 20px;
+  }
 }

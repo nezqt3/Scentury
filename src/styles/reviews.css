@@ -69,3 +69,22 @@
     transform: translateX(-100%);
   }
 }
+
+@media (max-width: 400px) {
+  .reviews-block h2 {
+    font-size: 32px;
+    margin-bottom: 87px;
+  }
+
+  .behind-block {
+    top: 90px;
+  }
+
+  .movement-block p {
+    font-size: 25px;
+  }
+
+  .review-slider {
+    width: 311px;
+  }
+}

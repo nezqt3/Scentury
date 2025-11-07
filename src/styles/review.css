@@ -114,3 +114,22 @@
     width: 100%;
   }
 }
+
+@media (max-width: 400px) {
+  .points {
+    margin-bottom: 15px;
+  }
+
+  .review-text {
+    font-size: 14px;
+    word-wrap: break-word;
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+    margin-bottom: 40px;
+  }
+
+  .review {
+    width: 311px;
+  }
+}

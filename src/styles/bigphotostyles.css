@@ -1,20 +1,39 @@
 .big-block {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 140px;
 }
 
 .big-block p {
-    padding: 0 20px;
-    width: 938px;
-    font-weight: 500;
-    font-style: Medium;
-    font-size: 50px;
-    line-height: 110.00000000000001%;
-    letter-spacing: -5%;
+  padding: 0 20px;
+  width: 938px;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 50px;
+  line-height: 110.00000000000001%;
+  letter-spacing: -5%;
 }
 
 .big-block span {
-    color: rgba(160, 36, 36, 1);
+  color: rgba(160, 36, 36, 1);
+}
+
+@media (max-width: 400px) {
+  .big-block {
+    overflow-x: hidden;
+    margin-bottom: 70px;
+  }
+
+  .big-block p {
+    word-wrap: break-word;
+    width: 100%;
+    overflow-wrap: break-word;
+    white-space: normal;
+    font-size: 32px;
+  }
+
+  .big-block img {
+    width: 490px;
+  }
 }
