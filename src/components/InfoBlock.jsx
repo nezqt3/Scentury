@@ -5,43 +5,43 @@ import Velour from "../static/Velour-Noir.png";
 import Silken from "../static/silken_muse.png";
 import Edel from "../static/edel_roots.png";
 
-export default function InfoBlock() {
-  const slides = [
-    {
-      id: 1,
-      title: "Aurora Essence",
-      description: "Сияние цитрусов и белых цветов. Аромат свежести и свободы.",
-      bg: Aurora,
-      buttonColor: "rgba(160, 36, 36, 1)",
-      textColor: "white",
-    },
-    {
-      id: 2,
-      title: "Velour Noir",
-      description: "Пряный шлейф кожи и специй. Смелый и дерзкий характер.",
-      bg: Velour,
-      buttonColor: "rgba(160, 36, 36, 1)",
-      textColor: "white",
-    },
-    {
-      id: 3,
-      title: "Silken Muse",
-      description: "Нежное переплетение пудры и ириса.",
-      bg: Silken,
-      buttonColor: "white",
-      textColor: "black",
-    },
-    {
-      id: 4,
-      title: "Edel Roots",
-      description:
-        "Древесная глубина с землистыми аккордами. Для тех, кто ценит силу природы.",
-      bg: Edel,
-      buttonColor: "white",
-      textColor: "black",
-    },
-  ];
+const slides = [
+  {
+    id: 1,
+    title: "Aurora Essence",
+    description: "Сияние цитрусов и белых цветов. Аромат свежести и свободы.",
+    bg: Aurora,
+    buttonColor: "rgba(160, 36, 36, 1)",
+    textColor: "white",
+  },
+  {
+    id: 2,
+    title: "Velour Noir",
+    description: "Пряный шлейф кожи и специй. Смелый и дерзкий характер.",
+    bg: Velour,
+    buttonColor: "rgba(160, 36, 36, 1)",
+    textColor: "white",
+  },
+  {
+    id: 3,
+    title: "Silken Muse",
+    description: "Нежное переплетение пудры и ириса.",
+    bg: Silken,
+    buttonColor: "white",
+    textColor: "black",
+  },
+  {
+    id: 4,
+    title: "Edel Roots",
+    description:
+      "Древесная глубина с землистыми аккордами. Для тех, кто ценит силу природы.",
+    bg: Edel,
+    buttonColor: "white",
+    textColor: "black",
+  },
+];
 
+export default function InfoBlock() {
   useEffect(() => {
     slides.forEach((slide) => {
       const img = new Image();
@@ -58,8 +58,6 @@ export default function InfoBlock() {
   const handleNext = () => {
     setActiveIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
-
-  const slide = slides[activeIndex];
 
   return (
     <div className="block-with-all-info">

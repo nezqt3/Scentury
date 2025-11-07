@@ -1,5 +1,5 @@
 import Review from "./Review";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function Reviews() {
   const reviews = [
@@ -51,30 +51,21 @@ export default function Reviews() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState("right");
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      goNext();
-    }, 10000);
-    return () => clearInterval(interval);
-  }, [activeIndex]);
-
-  const goNext = () => {
+  const goNext = useCallback(() => {
     setPrevIndex(activeIndex);
     const newIndex = (activeIndex + 1) % reviews.length;
     setDirection("right");
     setActiveIndex(newIndex);
 
-    // сбрасываем prevIndex после окончания анимации (чтобы не зависали классы)
     setTimeout(() => setPrevIndex(null), 800);
-  };
+  }, [activeIndex, reviews.length]);
 
-  const goPrev = () => {
-    setPrevIndex(activeIndex);
-    const newIndex = activeIndex === 0 ? reviews.length - 1 : activeIndex - 1;
-    setDirection("left");
-    setActiveIndex(newIndex);
-    setTimeout(() => setPrevIndex(null), 800);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goNext();
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [goNext]);
 
   return (
     <div className="reviews-block" id="#reviews">

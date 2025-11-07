@@ -3,14 +3,13 @@ import Instagram from "../../static/instagram.svg";
 import Telegram from "../../static/telegram.svg";
 import Mail from "../../static/email.svg";
 import Xz from "../../static/xz.svg";
-import { act, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ArrowBlack from "../../static/black_arrow.svg";
 import blockRightBackground from "../../static/blockRightBackground.png";
 import blockRightBackgroundAurora from "../../static/image-back.png";
 import blockRightBackgroundVelour from "../../static/Velour-Noir.png";
 import blockRightBackgroundSilken from "../../static/silken_muse.png";
 import blockRightBackgroundEdel from "../../static/edel_roots.png";
-import { color } from "framer-motion";
 
 export default function StartScreen() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -215,14 +214,15 @@ export default function StartScreen() {
                       style={{
                         backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
                       }}
+                      alt="review-bg-photo"
                     />
                   </div>
                   <div className="inner-right">
                     <p>Отзывы</p>
                     <div>
-                      <img src={ArrowBlack} />
-                      <img src={ArrowBlack} />
-                      <img src={ArrowBlack} />
+                      <img src={ArrowBlack} alt="arrow-1" />
+                      <img src={ArrowBlack} alt="arrow-2" />
+                      <img src={ArrowBlack} alt="arrow-3" />
                     </div>
                   </div>
                 </div>
