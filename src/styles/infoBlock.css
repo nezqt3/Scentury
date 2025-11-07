@@ -145,7 +145,6 @@
 /* Hover эффект на middle блоки */
 .middle-block-container:hover {
   transform: scale(1.02);
-  filter: brightness(0.9);
 }
 
 /* Контент middle блоков */
@@ -201,7 +200,6 @@
 /* Hover эффект на bottom блок */
 .bottom-block-container:hover {
   transform: scale(1.02);
-  filter: brightness(0.9);
 }
 
 .edel {

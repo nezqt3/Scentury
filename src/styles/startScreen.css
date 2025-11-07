@@ -358,6 +358,7 @@ h1 {
   text-align: center;
   border: 2px solid black;
   align-items: center;
+  color: black;
   opacity: 0.2;
   font-family: Inter;
   font-weight: 400;
@@ -371,7 +372,9 @@ h1 {
 }
 
 .navigation-left-buttons p.active-nav {
-  opacity: 1;
+  opacity: 0.2;
+  background-color: black;
+  color: white;
 }
 
 .bottom-block-right-screen {
@@ -496,11 +499,44 @@ h1 {
 }
 
 @media (max-width: 400px) {
+  .start-screen {
+    flex-direction: column;
+  }
+
   .start-screen h1 {
     font-size: 43px;
   }
 
   .start-screen p {
     font-size: 14px;
+  }
+
+  .start-buttons {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .start-buttons button {
+    padding: 15px 15px 15px 45px;
+    font-size: 14px;
+  }
+
+  .start-buttons button::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .start-buttons p {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .start-buttons p::after {
+    width: 33px;
+    height: 27px;
+  }
+
+  .left-start-screen .xz {
+    width: 100%;
   }
 }
