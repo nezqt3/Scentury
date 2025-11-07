@@ -193,16 +193,29 @@
   }
 
   .header {
+    margin-bottom: 40px;
     justify-content: space-between;
   }
 
   .desktop-nav {
     display: none;
   }
-}
 
-@media (max-width: 500px) {
-  .header {
-    margin-bottom: 40px;
+  .menu-burger {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .menu-burger button {
+    background-color: transparent;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid rgba(160, 36, 36, 1);
+    background-color: rgba(160, 36, 36, 1);
+    color: white;
   }
 }

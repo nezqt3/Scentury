@@ -1,7 +1,10 @@
 import { useState, useRef } from "react";
 import LogoPart from "../../static/logo_part.svg";
 import BurgerIcon from "../../static/burger.svg";
-import CloseIcon from "../../static/close.svg"; // добавь любую иконку закрытия (крестик)
+import Instagram from "../../static/instagram.svg";
+import Telegram from "../../static/telegram.svg";
+import Mail from "../../static/email.svg";
+import CloseIcon from "../../static/close.svg";
 
 export default function Header() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -83,6 +86,20 @@ export default function Header() {
               {elem.text}
             </p>
           ))}
+          <div className="menu-burger">
+            <div className="social-media">
+              <div className="instagram">
+                <img src={Instagram} alt="instagram" />
+              </div>
+              <div className="telegram">
+                <img src={Telegram} alt="telegram" />
+              </div>
+              <div className="mail">
+                <img src={Mail} alt="mail" />
+              </div>
+            </div>
+            <button>Позвонить</button>
+          </div>
         </div>
       </div>
     </header>
