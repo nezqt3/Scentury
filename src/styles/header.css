@@ -26,6 +26,94 @@
   height: 26px;
 }
 
+.burger {
+  display: none;
+}
+
+/* затемнённый фон */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+.mobile-nav-overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* панель меню */
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80%;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 40px 24px;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav-overlay.show .mobile-nav {
+  transform: translateX(0);
+}
+
+/* крестик */
+.close-btn {
+  align-self: flex-end;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* пункты меню */
+.mobile-nav-item {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: #111;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideInItem 0.4s ease forwards;
+}
+
+.mobile-nav-overlay.show .mobile-nav-item:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.mobile-nav-overlay.show .mobile-nav-item:nth-child(3) {
+  animation-delay: 0.25s;
+}
+.mobile-nav-overlay.show .mobile-nav-item:nth-child(4) {
+  animation-delay: 0.35s;
+}
+.mobile-nav-overlay.show .mobile-nav-item:nth-child(5) {
+  animation-delay: 0.45s;
+}
+
+@keyframes slideInItem {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .navigation {
   display: flex;
   gap: 4px; /* Уменьшаем gap для более плавного перехода */
@@ -96,4 +184,18 @@
 
 .navigation-item.active .nav-text {
   transform: translateX(0);
+}
+
+@media (max-width: 400px) {
+  .burger {
+    display: block;
+  }
+
+  .header {
+    justify-content: space-between;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
 }

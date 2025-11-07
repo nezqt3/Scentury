@@ -494,3 +494,13 @@ h1 {
   padding-right: 7px;
   margin: auto 0;
 }
+
+@media (max-width: 400px) {
+  .start-screen h1 {
+    font-size: 43px;
+  }
+
+  .start-screen p {
+    font-size: 14px;
+  }
+}
