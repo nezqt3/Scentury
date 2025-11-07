@@ -49,6 +49,7 @@ export default function Reviews() {
 
   const [prevIndex, setPrevIndex] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState("right");
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,10 +60,20 @@ export default function Reviews() {
 
   const goNext = () => {
     setPrevIndex(activeIndex);
-    let prev = 0;
-    if (activeIndex + 1 < reviews.length) prev = activeIndex + 1;
-    else prev = 0;
-    setActiveIndex((prev) => (prev + 1) % reviews.length);
+    const newIndex = (activeIndex + 1) % reviews.length;
+    setDirection("right");
+    setActiveIndex(newIndex);
+
+    // сбрасываем prevIndex после окончания анимации (чтобы не зависали классы)
+    setTimeout(() => setPrevIndex(null), 800);
+  };
+
+  const goPrev = () => {
+    setPrevIndex(activeIndex);
+    const newIndex = activeIndex === 0 ? reviews.length - 1 : activeIndex - 1;
+    setDirection("left");
+    setActiveIndex(newIndex);
+    setTimeout(() => setPrevIndex(null), 800);
   };
 
   return (
@@ -70,52 +81,51 @@ export default function Reviews() {
       <h2>
         Ароматы глазами<br></br> клиентов
       </h2>
-      <div className="review-slider">
+      <div className="review-slider" onClick={goNext}>
         {reviews.map((review, index) => {
-          const flyingRight = index === prevIndex && prevIndex % 2 === 0;
-          const flyingLeft = index === prevIndex && prevIndex % 2 !== 0;
-          const zIndex =
-            index === activeIndex ? 10 : 10 - Math.abs(index - activeIndex);
+          const isActive = index === activeIndex;
+          const isPrev = index === prevIndex;
+
+          const flyingOut =
+            isPrev && direction === "right"
+              ? "slide-out-right"
+              : isPrev && direction === "left"
+                ? "slide-out-left"
+                : "";
+
+          const flyingIn =
+            isActive && direction === "right"
+              ? "slide-in-right"
+              : isActive && direction === "left"
+                ? "slide-in-left"
+                : "";
+
+          const zIndex = isActive ? 10 : isPrev ? 9 : 1;
 
           return (
             <Review
+              key={review.id}
               index={index}
-              goNext={goNext}
               activeIndex={activeIndex}
               reviewText={review.reviewText}
               name={review.name}
               city={review.city}
               zIndex={zIndex}
-              flyingRight={flyingRight}
-              flyingLeft={flyingLeft}
+              extraClass={`${flyingOut} ${flyingIn}`}
             />
           );
         })}
       </div>
       <div className="behind-block">
         <div className="movement-block">
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <p key={i}>Scentury</p>
+          ))}
         </div>
         <div className="movement-block">
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
-          <p>Scentury</p>
+          {Array.from({ length: 10 }).map((_, i) => (
+            <p key={i}>Scentury</p>
+          ))}
         </div>
       </div>
     </div>

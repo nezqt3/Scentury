@@ -33,7 +33,7 @@ export default function StartScreen() {
         setPrevIndex(prevIndex);
         setDirection(newIndex > prevIndex ? "up" : "down");
         setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), 700);
+        setTimeout(() => setIsAnimating(false), 1200);
         return newIndex;
       });
     }, 5000);
