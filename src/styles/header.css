@@ -201,7 +201,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .header {
     margin-bottom: 40px;
   }

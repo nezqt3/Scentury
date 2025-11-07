@@ -102,7 +102,7 @@
   filter: brightness(0) invert(1);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .choose {
     padding: 0 15px;
     margin-bottom: 40px;

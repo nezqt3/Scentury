@@ -19,7 +19,7 @@
   color: rgba(160, 36, 36, 1);
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .big-block {
     overflow-x: hidden;
     margin-bottom: 70px;

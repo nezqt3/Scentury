@@ -502,7 +502,7 @@ h1 {
   margin: auto 0;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .start-screen {
     flex-direction: column;
   }
