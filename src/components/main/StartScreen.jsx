@@ -84,16 +84,23 @@ export default function StartScreen() {
               isAnimating ? `slide-in-${direction}` : ""
             }`}
             style={
-              elements[activeIndex].id === 4
+              elements[activeIndex].id === 2 ||
+              elements[activeIndex].id === 3 ||
+              elements[activeIndex].id === 5
                 ? {
                     backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
-                    backgroundPosition: "left center",
-                    backgroundSize: "cover",
-                    backgroundRepeat: "no-repeat",
+                    filter: "brightness(75%)",
                   }
-                : {
-                    backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
-                  }
+                : elements[activeIndex].id === 4
+                  ? {
+                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
+                      backgroundPosition: "left center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                    }
+                  : {
+                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
+                    }
             }
           ></div>
 
@@ -102,16 +109,23 @@ export default function StartScreen() {
             <div
               className={`background-image previous slide-out-${direction}`}
               style={
-                elements[prevIndex].id === 4
+                elements[prevIndex].id === 2 ||
+                elements[prevIndex].id === 3 ||
+                elements[prevIndex].id === 5
                   ? {
-                      backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
-                      backgroundPosition: "left center",
-                      backgroundSize: "cover",
-                      backgroundRepeat: "no-repeat",
+                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
+                      filter: "brightness(75%)",
                     }
-                  : {
-                      backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
-                    }
+                  : elements[prevIndex].id === 4
+                    ? {
+                        backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
+                        backgroundPosition: "left center",
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                      }
+                    : {
+                        backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
+                      }
               }
             ></div>
           )}
@@ -156,6 +170,7 @@ export default function StartScreen() {
                     };
                   } else {
                     style = {
+                      opacity: 1,
                       color: "white",
                       backgroundColor: "transparent",
                       borderColor: "white",
