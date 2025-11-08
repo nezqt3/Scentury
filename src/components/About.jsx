@@ -14,9 +14,8 @@ export default function About() {
         </p>
         <p className="add-text red-text">
           Редкие ингредиенты, малые партии и уникальные истории — всё это
-          отличает Scentury от масс-
-          <br />
-          маркета и привычного люкса.
+          отличает Scentury <br />
+          от масс-маркета и привычного люкса.
         </p>
       </div>
     </div>

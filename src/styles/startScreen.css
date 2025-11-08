@@ -56,6 +56,10 @@ h1 {
   text-decoration: none;
 }
 
+.right-start-screen {
+  background-color: transparent;
+}
+
 .start-buttons button {
   font-family: Inter;
   font-weight: 500;
@@ -163,70 +167,58 @@ h1 {
 
 .background-image.current {
   opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .background-image.previous {
   z-index: 2;
 }
 
-/* Сдвиги и плавность */
-.background-image.slide-in-up {
-  animation: slideInUp 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+.background-image.current {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
-.background-image.slide-in-down {
-  animation: slideInDown 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+/* анимации вверх */
+.slide-in-up {
+  transform: translateY(60px) scale(1.05);
+  animation: slideInUp 1.2s forwards cubic-bezier(0.77, 0, 0.175, 1);
 }
-
-.background-image.slide-out-up {
-  animation: slideOutUp 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-
-.background-image.slide-out-down {
-  animation: slideOutDown 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-}
-
-/* Анимации */
 @keyframes slideInUp {
-  0% {
-    transform: translateY(40%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
+  to {
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
 }
-
-@keyframes slideInDown {
-  0% {
-    transform: translateY(-40%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.previous.up {
+  transform: translateY(0);
+  animation: slideOutUp 1.2s forwards cubic-bezier(0.77, 0, 0.175, 1);
 }
-
 @keyframes slideOutUp {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-20%);
+  to {
+    transform: translateY(-60px) scale(0.98);
     opacity: 0;
   }
 }
 
-@keyframes slideOutDown {
-  0% {
-    transform: translateY(0);
+/* анимации вниз */
+.slide-in-down {
+  transform: translateY(-60px) scale(1.05);
+  animation: slideInDown 1.2s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
+@keyframes slideInDown {
+  to {
+    transform: translateY(0) scale(1);
     opacity: 1;
   }
-  100% {
-    transform: translateY(20%);
+}
+.previous.down {
+  transform: translateY(0);
+  animation: slideOutDown 1.2s forwards cubic-bezier(0.77, 0, 0.175, 1);
+}
+@keyframes slideOutDown {
+  to {
+    transform: translateY(60px) scale(0.98);
     opacity: 0;
   }
 }
@@ -261,7 +253,7 @@ h1 {
   font-weight: 700;
   position: absolute;
   font-style: Bold;
-  top: 25%;
+  top: 15%;
   right: 20px;
   font-size: 40px;
   line-height: 100%;
@@ -355,7 +347,7 @@ h1 {
 }
 
 .navigation-left-buttons p {
-  opacity: 0.2;
+  opacity: 0.3;
   border-radius: 50%;
   padding: 13px 20px;
   width: 50px;
@@ -379,6 +371,12 @@ h1 {
 }
 
 .navigation-left-buttons p.active-nav {
+  opacity: 0.2;
+  background-color: black;
+  color: white;
+}
+
+.navigation-left-buttons p:hover {
   opacity: 0.2;
   background-color: black;
   color: white;
@@ -512,7 +510,6 @@ h1 {
   }
 
   .text-front {
-    top: 15%;
   }
 
   .right-start-screen {

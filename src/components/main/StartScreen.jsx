@@ -3,7 +3,7 @@ import Instagram from "../../static/instagram.svg";
 import Telegram from "../../static/telegram.svg";
 import Mail from "../../static/email.svg";
 import Xz from "../../static/xz.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ArrowBlack from "../../static/black_arrow.svg";
 import blockRightBackground from "../../static/blockRightBackground.png";
 import blockRightBackgroundAurora from "../../static/image-back.png";
@@ -15,7 +15,10 @@ export default function StartScreen() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [direction, setDirection] = useState("up"); // "up" или "down"
+  const [direction, setDirection] = useState("up");
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const intervalRef = useRef(null);
 
   const elements = [
     { id: 1, backgroundUrl: blockRightBackground },
@@ -25,34 +28,43 @@ export default function StartScreen() {
     { id: 5, backgroundUrl: blockRightBackgroundEdel },
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => {
-        if (isAnimating) return prevIndex; // не трогаем во время анимации
-        const newIndex = (prevIndex + 1) % elements.length;
-        setPrevIndex(prevIndex);
-        setDirection(newIndex > prevIndex ? "up" : "down");
-        setIsAnimating(true);
-        setTimeout(() => setIsAnimating(false), 1200);
-        return newIndex;
-      });
-    }, 5000);
+  const startInterval = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
 
-    return () => clearInterval(interval); // очистка интервала при размонтировании
-  }, [elements.length, isAnimating]);
+    intervalRef.current = setInterval(() => {
+      setDirection("down"); // авто-слайд всегда вверх
+      setPrevIndex(activeIndex);
+      setActiveIndex((prev) => (prev + 1) % elements.length);
+    }, 7000);
+  };
+
+  useEffect(() => {
+    const startInterval = () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+
+      intervalRef.current = setInterval(() => {
+        setIsAnimating(true); // включаем блокировку на время анимации
+        setPrevIndex((prev) => {
+          return activeIndex;
+        });
+        setActiveIndex((prev) => (prev + 1) % elements.length);
+        setDirection("down");
+      }, 7000);
+    };
+
+    startInterval();
+
+    return () => clearInterval(intervalRef.current);
+  }, [activeIndex, elements.length]); // добавляем зависимость длины элементов
 
   const handleNavigationClick = (index) => {
-    if (isAnimating || index === activeIndex) return;
+    if (index === activeIndex || isAnimating) return;
 
-    // Обеспечиваем цикличность индекса
-    const newIndex = (index + elements.length) % elements.length;
-
-    setIsAnimating(true);
+    setDirection(index > activeIndex ? "up" : "down"); // вверх или вниз
     setPrevIndex(activeIndex);
-    setActiveIndex(newIndex);
-    setDirection(newIndex > activeIndex ? "up" : "down");
-
-    setTimeout(() => setIsAnimating(false), 700);
+    setActiveIndex(index);
+    setIsAnimating(true);
+    startInterval();
   };
 
   return (
@@ -69,7 +81,7 @@ export default function StartScreen() {
           парфюмерии от независимых домов
         </p>
         <div className="start-buttons">
-          <a
+          <button
             onClick={() => {
               const section = document.getElementById("#info-block");
               if (section) {
@@ -80,9 +92,9 @@ export default function StartScreen() {
               }
             }}
           >
-            <button>Открыть коллекцию</button>
-          </a>
-          <a
+            Открыть коллекцию
+          </button>
+          <p
             onClick={() => {
               const section = document.getElementById("#about");
               if (section) {
@@ -93,8 +105,8 @@ export default function StartScreen() {
               }
             }}
           >
-            <p>Узнать больше</p>
-          </a>
+            Узнать больше
+          </p>
         </div>
         <img src={Xz} alt="xz" className="xz" />
       </div>
@@ -103,53 +115,50 @@ export default function StartScreen() {
         <div className="right-start-screen">
           {/* Новый фон */}
           <div
-            className={`background-image current ${
-              isAnimating ? `slide-in-${direction}` : ""
-            }`}
-            style={
-              elements[activeIndex].id === 2 ||
+            key={activeIndex}
+            className={`background-image current ${isAnimating ? `slide-in-${direction}` : ""}`}
+            onAnimationEnd={() => setIsAnimating(false)}
+            style={{
+              backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
+              backgroundColor: "white",
+              ...(elements[activeIndex].id === 2 ||
               elements[activeIndex].id === 3 ||
               elements[activeIndex].id === 5
-                ? {
-                    backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
-                    filter: "brightness(75%)",
-                  }
+                ? { filter: "brightness(75%)" }
                 : elements[activeIndex].id === 4
                   ? {
-                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
                       backgroundPosition: "left center",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
                     }
-                  : {
-                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
-                    }
-            }
+                  : elements[activeIndex].id === 1
+                    ? { filter: "brightness(85%)" }
+                    : {}),
+            }}
           ></div>
 
           {/* Старый фон */}
-          {isAnimating && (
+          {prevIndex !== activeIndex && (
             <div
-              className={`background-image previous slide-out-${direction}`}
-              style={
-                elements[prevIndex].id === 2 ||
+              key={prevIndex}
+              className={`background-image previous ${direction}`}
+              onAnimationEnd={() => setIsAnimating(false)}
+              style={{
+                backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
+                backgroundColor: "white",
+                ...(elements[prevIndex].id === 2 ||
                 elements[prevIndex].id === 3 ||
-                elements[prevIndex].id === 5
-                  ? {
-                      backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
-                      filter: "brightness(75%)",
-                    }
+                elements[prevIndex].id === 5 ||
+                elements[prevIndex].id === 1
+                  ? { filter: "brightness(75%)" }
                   : elements[prevIndex].id === 4
                     ? {
-                        backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
                         backgroundPosition: "left center",
                         backgroundSize: "cover",
                         backgroundRepeat: "no-repeat",
                       }
-                    : {
-                        backgroundImage: `url(${elements[prevIndex].backgroundUrl})`,
-                      }
-              }
+                    : {}),
+              }}
             ></div>
           )}
 
@@ -179,17 +188,20 @@ export default function StartScreen() {
                 const isActive = index === activeIndex;
                 const activeId = elements[activeIndex].id;
 
-                // Проверяем, если текущий активный элемент — 2, 3 или 5
                 const specialIds = [2, 3, 5];
+
+                const isHovered = index === hoveredIndex;
+
                 let style = {};
 
                 if (specialIds.includes(activeId)) {
-                  if (isActive) {
+                  if (isActive || isHovered) {
                     style = {
                       opacity: 1,
-                      color: "rgb(0, 0, 0, 0.1)",
+                      color: "rgba(0, 0, 0, 0.1)",
                       backgroundColor: "white",
                       borderColor: "white",
+                      transition: "all 0.3s ease",
                     };
                   } else {
                     style = {
@@ -197,6 +209,7 @@ export default function StartScreen() {
                       color: "white",
                       backgroundColor: "transparent",
                       borderColor: "white",
+                      transition: "all 0.3s ease",
                     };
                   }
                 }
@@ -204,7 +217,9 @@ export default function StartScreen() {
                 return (
                   <p
                     key={elem.id}
-                    onClick={() => handleNavigationClick(index)}
+                    onClick={() => !isAnimating && handleNavigationClick(index)}
+                    onMouseEnter={() => setHoveredIndex(index)}
+                    onMouseLeave={() => setHoveredIndex(null)}
                     style={style}
                     className={`${isActive ? "active-nav" : ""} ${isAnimating ? "disabled" : ""}`}
                   >
@@ -235,6 +250,7 @@ export default function StartScreen() {
                   <div className="inner-left">
                     <p className="plus">+</p>
                     <img
+                      alt=""
                       style={{
                         backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
                       }}
