@@ -2,7 +2,7 @@ import Logo from "../static/about_brand.svg";
 
 export default function About() {
   return (
-    <div className="about" id="#about">
+    <div className="about" id="about">
       <div className="about-container">
         <img src={Logo} alt="about-brand" className="image-brand" />
         <p className="main-text">

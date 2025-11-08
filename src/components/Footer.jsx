@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer" id="#contacts">
+    <footer className="footer" id="contacts">
       <div>
         <span>Коллекция</span>
         <p>Новинки</p>

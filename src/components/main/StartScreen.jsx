@@ -68,7 +68,7 @@ export default function StartScreen() {
   };
 
   return (
-    <div className="start-screen" id="#collection">
+    <div className="start-screen" id="collection">
       <div className="left-start-screen">
         <Header />
         <p className="found-aromat">Найти свой аромат</p>

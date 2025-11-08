@@ -60,7 +60,7 @@ export default function InfoBlock() {
   };
 
   return (
-    <div className="block-with-all-info" id="#info-block">
+    <div className="block-with-all-info" id="info-block">
       {/* Слайдер */}
       <div className="slider">
         {slides.map((s, i) => (
@@ -84,6 +84,15 @@ export default function InfoBlock() {
                 <p className="up-info">{s.description}</p>
                 <h2 className="title">{s.title}</h2>
                 <button
+                  onClick={() => {
+                    const section = document.getElementById("#choose");
+                    if (section) {
+                      section.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
+                    }
+                  }}
                   style={{
                     backgroundColor: s.buttonColor,
                     color: s.textColor,
@@ -119,7 +128,19 @@ export default function InfoBlock() {
               Пряный шлейф кожи и специй. Смелый и дерзкий характер.
             </p>
             <h2 className="title red-text">Velour Noir</h2>
-            <button>Оформить заказ</button>
+            <button
+              onClick={() => {
+                const section = document.getElementById("#choose");
+                if (section) {
+                  section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }}
+            >
+              Оформить заказ
+            </button>
           </div>
         </div>
 
@@ -130,7 +151,19 @@ export default function InfoBlock() {
           <div className="block-with-info-middle">
             <p className="up-info">Нежное переплетение пудры и ириса.</p>
             <h2 className="title">Silken Muse</h2>
-            <button>Оформить заказ</button>
+            <button
+              onClick={() => {
+                const section = document.getElementById("#choose");
+                if (section) {
+                  section.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }
+              }}
+            >
+              Оформить заказ
+            </button>
           </div>
         </div>
       </div>
@@ -146,7 +179,19 @@ export default function InfoBlock() {
             природы.
           </p>
           <h2 className="title">Edel Roots</h2>
-          <button>Оформить заказ</button>
+          <button
+            onClick={() => {
+              const section = document.getElementById("#choose");
+              if (section) {
+                section.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
+            Оформить заказ
+          </button>
         </div>
       </div>
     </div>
