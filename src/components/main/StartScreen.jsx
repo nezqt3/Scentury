@@ -69,8 +69,32 @@ export default function StartScreen() {
           парфюмерии от независимых домов
         </p>
         <div className="start-buttons">
-          <button>Открыть коллекцию</button>
-          <p>Узнать больше</p>
+          <a
+            onClick={() => {
+              const section = document.getElementById("#info-block");
+              if (section) {
+                section.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
+            <button>Открыть коллекцию</button>
+          </a>
+          <a
+            onClick={() => {
+              const section = document.getElementById("#about");
+              if (section) {
+                section.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
+            <p>Узнать больше</p>
+          </a>
         </div>
         <img src={Xz} alt="xz" className="xz" />
       </div>
@@ -214,7 +238,7 @@ export default function StartScreen() {
                       style={{
                         backgroundImage: `url(${elements[activeIndex].backgroundUrl})`,
                       }}
-                      alt="review-bg-photo"
+                      // alt="review-bg-photo"
                     />
                   </div>
                   <div className="inner-right">

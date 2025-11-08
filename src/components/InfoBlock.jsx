@@ -60,21 +60,21 @@ export default function InfoBlock() {
   };
 
   return (
-    <div className="block-with-all-info">
+    <div className="block-with-all-info" id="#info-block">
       {/* Слайдер */}
       <div className="slider">
         {slides.map((s, i) => (
           <div
             key={s.id}
-            className={`slider-block ${i === activeIndex ? "active" : ""}`}
+            className={`slider-block ${i === activeIndex ? "active" : ""} ${s.title === "Velour Noir" ? "velour" : s.title === "Edel Roots" ? "edel-roots" : ""}`}
             style={{ backgroundImage: `url(${s.bg})` }}
           >
             {i === activeIndex && (
               <div
-                className="block-with-info"
+                className={"block-with-info"}
                 style={{
                   color:
-                    s.title === "Edel Roots"
+                    s.title === "Edel Roots" || s.title === "Silken Muse"
                       ? "white"
                       : s.title === "Aurora Essence"
                         ? "rgba(160, 36, 36, 1)"
@@ -110,7 +110,9 @@ export default function InfoBlock() {
       <div className="middle-block">
         <div
           className="middle-block-container velour"
-          style={{ backgroundImage: `url(${Velour})` }}
+          style={{
+            backgroundImage: `url(${Velour})`,
+          }}
         >
           <div className="block-with-info-middle">
             <p className="up-info red-text">
