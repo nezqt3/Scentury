@@ -237,7 +237,7 @@ export default function StartScreen() {
               <div
                 className="nextButton-bottom"
                 onClick={() => {
-                  const section = document.getElementById("#reviews");
+                  const section = document.querySelector("#reviews");
                   if (section) {
                     section.scrollIntoView({
                       behavior: "smooth",
