@@ -83,7 +83,7 @@ export default function StartScreen() {
         <div className="start-buttons">
           <button
             onClick={() => {
-              const section = document.getElementById("#info-block");
+              const section = document.querySelector("#info-block");
               if (section) {
                 section.scrollIntoView({
                   behavior: "smooth",
@@ -96,7 +96,7 @@ export default function StartScreen() {
           </button>
           <p
             onClick={() => {
-              const section = document.getElementById("#about");
+              const section = document.querySelector("#about");
               if (section) {
                 section.scrollIntoView({
                   behavior: "smooth",
