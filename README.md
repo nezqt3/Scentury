@@ -44,7 +44,7 @@ Scentury — современный веб-сайт с чистым и мини�
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/yourusername/scentury.git
+   git clone https://github.com/nezqt3/Scentury.git
 
 2. Перейдие в папку проекта:
    ```bash
