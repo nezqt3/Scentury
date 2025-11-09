@@ -290,6 +290,7 @@ h1 {
 
 .instagram {
   align-items: center;
+  cursor: pointer;
   background: rgba(247, 247, 247, 1);
   border-radius: 30px;
   padding: 8px;
@@ -301,11 +302,13 @@ h1 {
   align-items: center;
   background: rgba(247, 247, 247, 1);
   border-radius: 30px;
+  cursor: pointer;
   padding: 11px 12px 13px 10px;
 }
 
 .mail {
   display: flex;
+  cursor: pointer;
   align-items: center;
   background: rgba(247, 247, 247, 1);
   border-radius: 30px;
